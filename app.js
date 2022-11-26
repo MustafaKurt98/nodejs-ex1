@@ -1,3 +1,4 @@
+const { json } = require('express')
 const express = require('express')
 const app = express()
 require('dotenv').config()
@@ -7,7 +8,13 @@ const fs = require('fs');
 
 
 for (let i = 0; i < 100; i++) {
-    arr.push({ 'id': i, 'name': 'name' + i })
+    arr.push({ 'id': i,
+     'name': 'name' + i ,
+     'age': i + 10,
+     'address': 'address' + i,
+     'phone': 'phone' + i,
+     'email': 'email' + i,
+    })
 }
 
 app.get('/', (req, res) => {
