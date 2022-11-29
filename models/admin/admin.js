@@ -1,11 +1,5 @@
 const mongoose = require('mongoose');
 const adminSchema = new mongoose.Schema({
-    nameSurname: {
-        type: String,
-      },
-      identificationNo: {
-        type: Number,
-      },
       email: {
         type: String,
       },
