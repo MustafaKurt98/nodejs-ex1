@@ -3,7 +3,6 @@ const express = require('express');
 const morgan = require('morgan');
 const { log } = require('mercedlogger');
 const cors = require('cors');
-const adminRouter = require('./routes/auth');
 path = require('path');
 
 const port = process.env.PORT || 3000;
@@ -13,13 +12,13 @@ const db = require('./db/connection');
 db();
 
 
-
 app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
 
 const adminrouter = require('./routes/auth');
-app.use('/auth', adminrouter)
+const basicAuth = require('./encryption-server/basic-auth');
+app.use('/admin',basicAuth ,adminrouter)
 
 app.get('/', (req, res) => {
     res.send('test route');
