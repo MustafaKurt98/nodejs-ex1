@@ -1,0 +1,95 @@
+{
+  "PIZZA & MAKARNA": [
+    {
+      "id": 1,
+      "name": "Wild Mushroom Risotto",
+      "description": "",
+      "price": "120 ₺",
+      "img": ""
+    },
+    {
+      "id": 2,
+      "name": "Çin Eriştesi / Chinese Noodles",
+      "description": "",
+      "price": "110 ₺",
+      "img": ""
+    },
+    {
+      "id": 3,
+      "name": "Noodle (Tavuk ile / With Chicken)",
+      "description": "",
+      "price": "90 ₺",
+      "img": ""
+    },
+    {
+      "id": 4,
+      "name": "Noodle (Dana eti ile / With Beef)",
+      "description": "",
+      "price": "130 ₺",
+      "img": ""
+    },
+    {
+      "id": 5,
+      "name": "Fettuccini Alfredo",
+      "description": "",
+      "price": "120 ₺",
+      "img": ""
+    },
+    {
+      "id": 6,
+      "name": "Penne Arabiatta",
+      "description": "",
+      "price": "105 ₺",
+      "img": ""
+    },
+    {
+      "id": 7,
+      "name": "Spagetti Bolonez Soslu",
+      "description": "",
+      "price": "130 ₺",
+      "img": ""
+    },
+    {
+      "id": 8,
+      "name": "Pizza Margherita",
+      "description": "",
+      "price": "100 ₺",
+      "img": ""
+    },
+    {
+      "id": 9,
+      "name": "Quattro Formaggi",
+      "description": "",
+      "price": "125 ₺",
+      "img": ""
+    },
+    {
+      "id": 10,
+      "name": "Pizza Luna",
+      "description": "",
+      "price": "135 ₺",
+      "img": ""
+    },
+    {
+      "id": 11,
+      "name": "Rozebeef Pizza",
+      "description": "",
+      "price": "145 ₺",
+      "img": ""
+    },
+    {
+      "id": 12,
+      "name": "Pizza Calzone",
+      "description": "",
+      "price": "125 ₺",
+      "img": ""
+    },
+    {
+      "id": 13,
+      "name": "PUB Pizza",
+      "description": "",
+      "price": "125 ₺",
+      "img": ""
+    }
+  ]
+}

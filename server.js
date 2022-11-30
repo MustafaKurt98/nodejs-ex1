@@ -18,7 +18,7 @@ app.use(express.json());
 
 const adminrouter = require('./routes/auth');
 const basicAuth = require('./encryption-server/basic-auth');
-app.use('/admin',basicAuth ,adminrouter)
+app.use('/admin', basicAuth, adminrouter)
 
 app.get('/', (req, res) => {
     res.send('test route');
