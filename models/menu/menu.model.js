@@ -4,7 +4,7 @@ const menuSchema = new mongoose.Schema({
         type: String,
     },
     name: {
-        type: Number,
+        type: String,
     },
     description: {
         type: String,
@@ -15,6 +15,7 @@ const menuSchema = new mongoose.Schema({
     img: {
         type: String,
     },
+
 })
 
 module.exports = mongoose.model('menu', menuSchema);

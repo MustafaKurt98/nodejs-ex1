@@ -1,18 +1,17 @@
 require('dotenv').config()
-const { log } = require('mercedlogger')
 const mongoose = require('mongoose')
 const { MONGO_URL } = process.env
 
 const db = async () => {
 
     try {
-        const db = await mongoose.connect(process.env.MONGO_URL, {
+        const db = await mongoose.connect(MONGO_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
         console.log('Mongodb Connected.')
     } catch (error) {
-        throw Error(error);
+        console.log('Mongodb Connected.')
         // process.exit(1);
     }
 

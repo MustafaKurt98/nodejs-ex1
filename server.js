@@ -11,18 +11,16 @@ const app = express();
 const db = require('./db/connection');
 db();
 
-
 app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
 
 const adminrouter = require('./routes/auth');
+const menurouter = require('./routes/menu');
 const basicAuth = require('./encryption-server/basic-auth');
 app.use('/admin', basicAuth, adminrouter)
+app.use('/menu', menurouter)
 
-app.get('/', (req, res) => {
-    res.send('test route');
-}
-);
 
-app.listen(port, () => log.cyan('Server is running on port', port));
+
+app.listen(port, () => log.green('Server is running on port', port));
