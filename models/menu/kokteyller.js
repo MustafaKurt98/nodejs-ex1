@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const MenuModel = require('../../models/menu/menu.model');
 
 const kokteyllerSchema = new mongoose.Schema({
-    specialkokteyller: {
-        aperatifkokteyller: [MenuModel],
-        yemeksonrasikokteyller: [MenuModel],
-        yuksekalkollu: [MenuModel]
+    "SPECIAL COCTAILS": {
+        "APERATIF KOKTEYLLER": [MenuModel],
+        "YEMEK SONRASI KOKTEYLLER": [MenuModel],
+        "YUKSEK ALKOLLU KOKTEYLLER": [MenuModel]
     },
-    cintonikokteyller: [MenuModel],
-    klasikkokteyller: [MenuModel]
+    "GIN TONIC COCTAILS": [MenuModel],
+    "ClASSIC COCTAILS": [MenuModel]
 })
 
 module.exports = mongoose.model('kokteyller', kokteyllerSchema);

@@ -20,7 +20,7 @@ const basicAuth = require('./encryption-server/basic-auth');
 
 
 app.use('/admin', basicAuth, adminrouter)
-app.use('/menu', menurouter)
+app.use('/menu', basicAuth, menurouter)
 
 
 
