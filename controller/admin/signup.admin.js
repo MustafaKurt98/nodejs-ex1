@@ -1,4 +1,4 @@
-const AdminModel = require('../../models/admin/admin');
+const AdminModel = require('../../models/admin/admin-model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { SECRET_KEY } = process.env;

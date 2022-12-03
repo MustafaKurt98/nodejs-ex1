@@ -14,8 +14,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 
-const adminrouter = require('./routes/auth');
-const menurouter = require('./routes/menu');
+const adminrouter = require('./routes/admin.route');
+const menurouter = require('./routes/menu.route');
 const basicAuth = require('./encryption-server/basic-auth');
 
 

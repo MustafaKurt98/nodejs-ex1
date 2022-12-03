@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const MenuModel = require('../../models/menu/menu.model');
+const MenuModel = require('../../models/menu/menu.model-model');
 
 const alkollerSchema = new mongoose.Schema({
     "BIRALAR / BEERS": [MenuModel],

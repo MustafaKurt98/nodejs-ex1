@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const MenuModel = require('../../models/menu/menu.model');
+const MenuModel = require('../../models/menu/menu.model-model');
 
 const burgerdurumSchema = new mongoose.Schema({
     "BURGER & DÜRÜM": [MenuModel],

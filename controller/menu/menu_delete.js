@@ -1,16 +1,16 @@
-const AlkollerModel = require('../../models/menu/alkoller');
-const AnayemekModel = require('../../models/menu/anayemek');
-const BaslangicModel = require('../../models/menu/baslangicsalata');
-const BurgerDurumModel = require('../../models/menu/burgerdurum');
-const IceceklerModel = require('../../models/menu/icecekler');
-const KokteyllerModel = require('../../models/menu/kokteyller');
-const PizzaMakarnaModel = require('../../models/menu/pizzamakarna');
-const TatlilarModel = require('../../models/menu/tatlilar');
-const YemekyanindaModel = require('../../models/menu/yemekyaninda');
+const AlkollerModel = require('../../models/menu/alkoller-model');
+const AnayemekModel = require('../../models/menu/anayemek-model');
+const BaslangicModel = require('../../models/menu/baslangicsalata-model');
+const BurgerDurumModel = require('../../models/menu/burgerdurum-model');
+const IceceklerModel = require('../../models/menu/icecekler-model');
+const KokteyllerModel = require('../../models/menu/kokteyller-model');
+const PizzaMakarnaModel = require('../../models/menu/pizzamakarna-model');
+const TatlilarModel = require('../../models/menu/tatlilar-model');
+const YemekyanindaModel = require('../../models/menu/yemekyaninda-model');
 
 const alkoller = async (req, res) => {
     const { _id } = req.body;
-    const alkollerData = await AlkollerModel.findByIdAndDelete({_id: _id});
+    const alkollerData = await AlkollerModel.findByIdAndDelete({ _id: _id });
     res.status(200).json(alkollerData);
 }
 
