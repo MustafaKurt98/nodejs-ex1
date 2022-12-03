@@ -8,16 +8,19 @@ const port = process.env.PORT || 3000;
 const app = express();
 const db = require('./db/connection');
 db();
+const AlkollerModel = require('./models/menu/alkoller-model');
+
+
+
 
 app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
 
 
-const adminrouter = require('./routes/admin.route');
-const menurouter = require('./routes/menu.route');
+const adminrouter = require('./routes/admin/admin.route');
+const menurouter = require('./routes/menu/menu.route');
 const basicAuth = require('./encryption-server/basic-auth');
-
 
 app.use('/admin', basicAuth, adminrouter)
 app.use('/menu', basicAuth, menurouter)
