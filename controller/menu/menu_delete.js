@@ -10,15 +10,72 @@ const YemekyanindaModel = require('../../models/menu/yemekyaninda-model');
 
 
 const alkoller = async (req, res) => {
-    const { _id } = req.body;
-    const alkollerData = await AlkollerModel.findByIdAndDelete(_id);
-    res.status(200).json(alkollerData);
+    const { _id, groupName, altGroupName } = req.body;
+    if (!_id || !groupName) {
+        res.status(400).json({ message: 'id is required' });
+    } else if (_id != "" && groupName != "") {
+        await AlkollerModel.find()
+            .then((data) => {
+                data.map((item) => {
+                    if (item[groupName]) {
+                        if (item[groupName][altGroupName]) {
+                            item[groupName][altGroupName].map((item2, index) => {
+                                if (item2._id == _id) {
+                                    item2.remove();
+                                } 
+                            })
+                            item.save();
+                        } else {
+                            item[groupName].map((item, index) => {
+                                if (item._id == _id) {
+                                    item.remove();
+                                } 
+                            })
+                            item.save();
+                        }
+
+                    } else {
+                        item.map((item, index) => {
+                            if (item._id == _id) {
+                                item.remove();
+                            } 
+                        })
+                        item.save();
+                    }
+
+                })
+                res.status(200).json(data);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            })
+    } else {
+        res.status(400).json({ message: 'id is required' });
+    }
 }
+
+
 
 const anayemek = async (req, res) => {
     const { _id } = req.body;
-    const anaYemekData = await AnayemekModel.findByIdAndDelete(id);
-    res.status(200).json(anaYemekData);
+    const anayemekData = await AnayemekModel.find()
+    anayemekData.map((item, index) => {
+        let anayemekler = item["ANA YEMEKLER"]
+        try {
+            anayemekler.findByIdAndDelete({_id:_id}, (err, data) => {
+                if (err) {
+                    console.log(err);
+                    res.status(500).json({ message: "error1" });
+                } else {
+                    res.status(200).json({ message: "success" });
+                }
+            })
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: "error2" });
+        }
+    })
 }
 
 const baslangiclar = async (req, res) => {

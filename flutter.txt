@@ -1,0 +1,104 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => Cart(),
+      child: MaterialApp(
+        home: HomePage(),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('My Shopping Cart'),
+      ),
+      body: Consumer<Cart>(
+        builder: (context, cart, child) {
+          return ListView.builder(
+            itemCount: cart.items.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(cart.items[index].name),
+                subtitle: Text(cart.items[index].price.toString()),
+                trailing: IconButton(
+                  icon: Icon(Icons.remove_shopping_cart),
+                  onPressed: () {
+                    cart.removeItem(index);
+                  },
+                ),
+              );
+            },
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_shopping_cart),
+        onPressed: () {
+          Provider.of<Cart>(context, listen: false).addItem(Product('Apple', 0.99));
+        },
+      ),
+    );
+  }
+}
+
+class Cart with ChangeNotifier {
+  List<Product> _items = [];
+
+  List<Product> get items => _items;
+
+  void addItem(Product product) {
+    _items.add(product);
+    notifyListeners();
+  }
+
+  void removeItem(int index) {
+    _items.removeAt(index);
+    notifyListeners();
+  }
+}
+
+class Product {
+  String name;
+  double price;
+
+  Product(this.name, this.price);
+}
+
+Bu örnekte, MyApp sınıfında bir ChangeNotifierProvider widgeti kullanarak tüm uygulama için bir Cart örneği sağlanmaktadır. HomePage sınıfında ise bir Consumer widgeti kullanarak Cart örneğine erişilerek, sepete eklenen ürünler görüntülenmektedir. Sepete ürün ekleme ve çıkarma işlemleri Cart sınıfının addItem ve removeItem metodları ile gerçekleştirilmektedir. Eğer soruların
+
+
+Tabii! Flutter ve Provider paketi kullanarak bir sepet uygulaması geliştirme adımlarını anlatayım:
+
+Öncelikle, makinenizde Flutter'ın en son sürümünün yüklü olduğundan emin olun.
+
+flutter create komutunu kullanarak yeni bir Flutter projesi oluşturun.
+
+pubspec.yaml dosyanıza provider paketini ekleyin.
+
+main.dart dosyasında, MaterialApp widgetini bir ChangeNotifierProvider widgeti ile sarın. Bu, ChangeNotifier sınıfını tüm uygulamanıza sağlayacaktır.
+
+ChangeNotifier sınıfını genişleterek bir Cart sınıfı oluşturun. Bu sınıf, sepete eklenen ürünleri yönetecek ve ekleme ve çıkarma işlemleri için yöntemler sağlayacaktır.
+
+Cart sınıfında, sepete eklenen ürünleri tutacak olan bir Product nesneleri listesi oluşturun.
+
+Cart sınıfında, sepete ürün ekleme ve çıkarma işlemlerini gerçekleştirecek yöntemler oluşturun. Sepetin içeriği değiştiğinde mutlaka notifyListeners metodunu çağırarak, kullanıcı arayüzünün güncellenebileceğini unutmayın.
+
+MaterialApp widgetinin build metodunda, widget ağacı içinde Cart örneğine erişmek için bir Consumer widgeti kullanın.
+
+Consumer widgetini kullanarak sepete eklenen ürünleri görüntüleyin ve ekleme ve çıkarma işlemleri için düğmeler sağlayın.
+
+Sepetin içeriği değiştiğinde kullanıcı arayüzünü güncellemek için Consumer widgetini kullanın.
+
+Bu kadar! Bu adımları izleyerek, Flutter ve Provider paketi kullanarak çalışan bir sepet uygulamasına sahip olacaksınız. Eğer sorularınız olursa bana söyleyin.
