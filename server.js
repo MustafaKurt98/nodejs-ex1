@@ -21,7 +21,7 @@ const adminrouter = require('./routes/admin/admin.route');
 const menurouter = require('./routes/menu/menu.route');
 const basicAuth = require('./encryption-server/basic-auth');
 
-app.use('/admin', basicAuth, adminrouter)
+app.use('/admin',basicAuth, adminrouter)
 app.use('/menu', basicAuth, menurouter)
 
 

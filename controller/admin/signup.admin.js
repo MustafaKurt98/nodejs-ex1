@@ -6,10 +6,12 @@ const { SECRET_KEY } = process.env;
 const signup = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
+        console.log(email, password)
         return res.status(400).json({ msg: 'Tüm alanları giriniz' });
     } else {
         let resultAcc = await AdminModel.findOne({ email: email });
         if (resultAcc) {
+            console.log(email, password)
             res.status(400).json({ msg: 'Böyle bir hesap mevcut' });
         } else {
             const payload = { email, date: new Date() };
